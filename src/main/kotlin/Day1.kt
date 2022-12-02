@@ -29,12 +29,12 @@ private fun main() {
     println(part2(readInputFile("day1_input.txt")))
 }
 
-fun part1(input: String): Int {
+private fun part1(input: String): Int {
     val calories: List<List<Int>> = parseInput(input)
     return calories.maxOf { it.sum() }
 }
 
-fun part2(input: String): Int {
+private fun part2(input: String): Int {
     val calories: List<List<Int>> = parseInput(input)
     return calories
         .map { it.sum() }

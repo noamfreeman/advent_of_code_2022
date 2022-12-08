@@ -105,7 +105,7 @@ private fun parseFileSystem(input: String): FileSystem {
 }
 
 
-class FileSystem {
+private class FileSystem {
     private var root = Dir("/", mutableListOf())
     private var currentPath: List<Dir> = listOf(root)
     private fun currentDir() = currentPath.last()
@@ -152,16 +152,16 @@ class FileSystem {
     }
 }
 
-sealed interface Entry {
+private sealed interface Entry {
     fun repr(): String
 }
 
-class File(val name: String, val size: Int) : Entry {
+private class File(val name: String, val size: Int) : Entry {
     override fun repr(): String = toString() + "\n"
     override fun toString(): String = "- $name (file, size=$size)"
 }
 
-class Dir(val name: String, val children: MutableList<Entry>) : Entry {
+private class Dir(val name: String, val children: MutableList<Entry>) : Entry {
     private fun findDir(path: String): Dir? {
         return children.filterIsInstance<Dir>().find {
             it.name == path

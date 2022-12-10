@@ -123,26 +123,3 @@ private class Matrix<T>(private val data: List<List<T>>) {
         }
     }
 }
-
-private data class MatrixCoord(val x: Int, val y: Int)
-
-private operator fun MatrixCoord.plus(dir: Direction) = when (dir) {
-    Direction.UP -> copy(y = y - 1)
-    Direction.DOWN -> copy(y = y + 1)
-    Direction.LEFT -> copy(x = x - 1)
-    Direction.RIGHT -> copy(x = x + 1)
-}
-
-private enum class Direction {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT;
-
-    fun opposite() = when (this) {
-        UP -> DOWN
-        DOWN -> UP
-        LEFT -> RIGHT
-        RIGHT -> LEFT
-    }
-}
